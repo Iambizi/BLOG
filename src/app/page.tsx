@@ -1,66 +1,67 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from 'next/link';
+import { getAllPosts, getFeaturedPosts } from '@/lib/content';
+import { PostCard } from '@/components/PostCard/PostCard';
+import styles from './page.module.scss';
 
 export default function Home() {
+  const allPosts = getAllPosts();
+  const featured = getFeaturedPosts();
+  const latest = allPosts.slice(0, 5);
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="page-container">
+      {/* Hero */}
+      <section className={styles.hero}>
+        <h1 className={styles.heroTitle}>
+          Writing about technology, design, and building things.
+        </h1>
+        <p className={styles.heroSub}>
+          Essays and notes on software, startups, and the craft of making.
+        </p>
+      </section>
+
+      {/* Featured */}
+      {featured.length > 0 && (
+        <section className={styles.section}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>Featured</h2>
+          </div>
+          <div className={styles.postList}>
+            {featured.map((post) => (
+              <PostCard key={post.slug} post={post} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Latest */}
+      <section className={styles.section}>
+        <div className={styles.sectionHeader}>
+          <h2 className={styles.sectionTitle}>Latest</h2>
+          <Link href="/writing" className={styles.viewAll}>
+            View all →
+          </Link>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className={styles.postList}>
+          {latest.map((post) => (
+            <PostCard key={post.slug} post={post} />
+          ))}
         </div>
-      </main>
+      </section>
+
+      {/* Quick Links */}
+      <section className={styles.quickLinks}>
+        <Link href="/about" className={styles.quickLink}>
+          <span className={styles.quickLinkLabel}>About</span>
+          <span className={styles.quickLinkDesc}>Who I am and what I do</span>
+          <span className={styles.arrow}>→</span>
+        </Link>
+        <Link href="/now" className={styles.quickLink}>
+          <span className={styles.quickLinkLabel}>Now</span>
+          <span className={styles.quickLinkDesc}>What I&apos;m focused on right now</span>
+          <span className={styles.arrow}>→</span>
+        </Link>
+      </section>
     </div>
   );
 }

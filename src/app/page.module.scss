@@ -1,0 +1,113 @@
+.hero {
+  padding: var(--space-4xl) 0 var(--space-2xl);
+  max-width: var(--content-width);
+}
+
+.heroTitle {
+  font-size: clamp(var(--font-2xl), 5vw, var(--font-3xl));
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: var(--space-md);
+}
+
+.heroSub {
+  font-size: var(--font-md);
+  color: var(--color-muted);
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+.section {
+  margin-bottom: var(--space-2xl);
+  max-width: var(--content-width);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-sm);
+}
+
+.sectionTitle {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.viewAll {
+  font-size: var(--font-sm);
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+
+  &:hover {
+    color: var(--color-accent);
+  }
+}
+
+.postList {
+  display: flex;
+  flex-direction: column;
+}
+
+.quickLinks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  max-width: var(--content-width);
+  margin-bottom: var(--space-2xl);
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.quickLink {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: border-color var(--transition-fast),
+              box-shadow var(--transition-fast);
+  position: relative;
+
+  &:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.quickLinkLabel {
+  font-size: var(--font-md);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.quickLinkDesc {
+  font-size: var(--font-sm);
+  color: var(--color-muted);
+}
+
+.arrow {
+  position: absolute;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  color: var(--color-muted);
+  font-size: var(--font-md);
+  transition: transform var(--transition-fast);
+
+  .quickLink:hover & {
+    transform: translateX(4px);
+    color: var(--color-accent);
+  }
+}

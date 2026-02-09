@@ -1,0 +1,78 @@
+---
+title: "Design Principles for the Web"
+date: "2026-02-01"
+description: "A framework for making design decisions on the web — clarity, speed, and respect for the reader."
+tags: ["design", "web-dev", "essays"]
+draft: false
+featured: false
+---
+
+Good web design is invisible. It gets out of the way and lets the content speak. Here are the principles I follow when building for the web.
+
+## 1. Clarity over cleverness
+
+Every design decision should make things clearer, not more impressive. If a user has to think about how to navigate your site, you've already lost.
+
+```css
+/* Clear, readable typography */
+body {
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  line-height: 1.7;
+  max-width: 720px;
+  margin: 0 auto;
+}
+```
+
+## 2. Speed is a feature
+
+Performance isn't a nice-to-have. A fast site shows respect for your reader's time and attention. Every millisecond counts.
+
+<Callout type="warning" title="Performance Pitfall">
+Avoid loading large JavaScript bundles for simple content sites. If you're shipping 500KB of JS to display text, something has gone wrong.
+</Callout>
+
+### What "fast" means in practice
+
+- First Contentful Paint under 1.5 seconds
+- No layout shift after initial render
+- Images lazy-loaded and properly sized
+- Minimal JavaScript on content pages
+
+## 3. Respect the reader
+
+Don't interrupt people with modals, newsletter popups, or cookie banners larger than the content. Present your work and let people engage on their own terms.
+
+## 4. Design for the edges
+
+Test on slow connections, small screens, and with keyboard-only navigation. The edges reveal the quality of your work.
+
+```typescript
+// Responsive images with proper loading
+interface ImageProps {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
+function OptimizedImage({ src, alt, width, height }: ImageProps) {
+  return (
+    <img
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      loading="lazy"
+      decoding="async"
+    />
+  );
+}
+```
+
+## 5. Consistency creates trust
+
+Use the same spacing, typography, and interaction patterns throughout. Consistency reduces cognitive load and builds familiarity.
+
+## In summary
+
+Design for clarity, speed, respect, edge cases, and consistency. These principles won't make your site trendy, but they'll make it good.

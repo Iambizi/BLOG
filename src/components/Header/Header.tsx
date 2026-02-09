@@ -1,0 +1,35 @@
+'use client';
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { siteConfig } from '@/lib/site';
+import { ThemeToggle } from '@/components/ThemeToggle/ThemeToggle';
+import styles from './Header.module.scss';
+
+export function Header() {
+  const pathname = usePathname();
+
+  return (
+    <header className={styles.header}>
+      <div className={styles.inner}>
+        <Link href="/" className={styles.logo}>
+          {siteConfig.name}
+        </Link>
+        <nav className={styles.nav}>
+          {siteConfig.nav.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`${styles.navLink} ${
+                pathname.startsWith(link.href) ? styles.active : ''
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <ThemeToggle />
+        </nav>
+      </div>
+    </header>
+  );
+}

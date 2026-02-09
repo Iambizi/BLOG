@@ -1,0 +1,113 @@
+@use 'tokens';
+@use 'typography';
+
+// ─── CSS Reset ───
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + var(--space-lg));
+}
+
+body {
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  transition: background-color var(--transition-base),
+              color var(--transition-base);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #ffffff;
+}
+
+// ─── Page Shell ───
+.page-container {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+
+  @media (max-width: 768px) {
+    padding: 0 var(--space-md);
+  }
+}
+
+.content-container {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+// ─── Utility ───
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// ─── Focus styles ───
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+// ─── Rehype Pretty Code theme overrides ───
+[data-rehype-pretty-code-figure] {
+  margin: var(--space-lg) 0;
+
+  pre {
+    background: var(--color-code-bg) !important;
+    padding: var(--space-md) var(--space-lg);
+    border: 1px solid var(--color-border);
+    overflow-x: auto;
+
+    [data-theme='dark'] & {
+      background: #1e1e1e !important;
+    }
+  }
+
+  code {
+    display: grid;
+    font-size: var(--font-sm);
+    line-height: 1.7;
+  }
+
+  [data-line] {
+    padding: 0 var(--space-sm);
+    border-left: 2px solid transparent;
+  }
+
+  [data-highlighted-line] {
+    background: var(--color-highlight);
+    border-left-color: var(--color-accent);
+  }
+}
+
+// data-rehype-pretty-code-title
+[data-rehype-pretty-code-title] {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: var(--font-sm);
+  color: var(--color-muted);
+  background: var(--color-code-bg);
+  border: 1px solid var(--color-border);
+  border-bottom: none;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+
+  + [data-rehype-pretty-code-figure] pre,
+  + pre {
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+  }
+}

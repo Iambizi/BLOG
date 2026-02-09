@@ -1,0 +1,29 @@
+.chip {
+  display: inline-block;
+  font-size: var(--font-xs);
+  color: var(--color-tag-text);
+  background: var(--color-tag-bg);
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  cursor: default;
+  transition: all var(--transition-fast);
+  line-height: 1.6;
+  font-family: inherit;
+}
+
+.clickable {
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    background: var(--color-highlight);
+  }
+}
+
+.active {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background: var(--color-highlight);
+}

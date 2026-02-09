@@ -1,0 +1,127 @@
+// ─── MDX Component Styles ───
+
+// Callout
+.callout {
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  margin: var(--space-lg) 0;
+  border-left: 3px solid var(--color-callout-border);
+  background: var(--color-callout-bg);
+}
+
+.callout_note {
+  border-left-color: var(--color-accent);
+}
+
+.callout_warning {
+  border-left-color: #f59e0b;
+  background: rgba(245, 158, 11, 0.06);
+}
+
+.callout_tip {
+  border-left-color: #10b981;
+  background: rgba(16, 185, 129, 0.06);
+}
+
+.calloutHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  font-weight: 600;
+  font-size: var(--font-sm);
+  color: var(--color-text);
+}
+
+.calloutIcon {
+  font-size: var(--font-base);
+}
+
+.calloutTitle {
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: var(--font-xs);
+}
+
+.calloutBody {
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Figure
+.figure {
+  margin: var(--space-xl) 0;
+  text-align: center;
+}
+
+.figureImg {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.caption {
+  font-size: var(--font-sm);
+  color: var(--color-muted);
+  margin-top: var(--space-sm);
+  font-style: italic;
+}
+
+// Quote
+.quote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: var(--space-lg);
+  margin: var(--space-xl) 0;
+  font-style: italic;
+  color: var(--color-text-secondary);
+
+  p {
+    font-size: var(--font-md);
+    line-height: 1.8;
+  }
+}
+
+.cite {
+  display: block;
+  font-size: var(--font-sm);
+  color: var(--color-muted);
+  margin-top: var(--space-sm);
+  font-style: normal;
+}
+
+// Copy Button
+.copyButton {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 4px 6px;
+  cursor: pointer;
+  color: var(--color-muted);
+  opacity: 0;
+  transition: opacity var(--transition-fast), color var(--transition-fast);
+  display: flex;
+  align-items: center;
+  z-index: 2;
+
+  &:hover {
+    color: var(--color-text);
+  }
+}
+
+// Wrapper for code blocks with copy button
+.codeBlockWrapper {
+  position: relative;
+
+  &:hover .copyButton {
+    opacity: 1;
+  }
+}
