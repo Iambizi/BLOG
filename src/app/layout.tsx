@@ -43,17 +43,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Inline script to prevent FOUC (Flash of Unstyled Content)
-const themeScript = `
-  (function() {
-    var theme = localStorage.getItem('theme') || 'system';
-    if (theme === 'system') {
-      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
-    document.documentElement.setAttribute('data-theme', theme);
-  })();
-`;
-
 export default function RootLayout({
   children,
 }: {
@@ -66,7 +55,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
         <Header />

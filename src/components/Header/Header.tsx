@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { siteConfig } from '@/lib/site';
-import { ThemeToggle } from '@/components/ThemeToggle/ThemeToggle';
 import styles from './Header.module.scss';
 
 export function Header() {
@@ -13,7 +12,16 @@ export function Header() {
     <header className={styles.header}>
       <div className={styles.inner}>
         <Link href="/" className={styles.logo}>
-          {siteConfig.name}
+          {siteConfig.name.includes('(aka Busy Metal)') ? (
+            <>
+              {siteConfig.name.replace('(aka Busy Metal)', '').trim()}{' '}
+              <span style={{ fontWeight: 400, color: 'var(--color-muted)', fontSize: '13px' }}>
+                (aka Busy Metal)
+              </span>
+            </>
+          ) : (
+            siteConfig.name
+          )}
         </Link>
         <nav className={styles.nav}>
           {siteConfig.nav.map((link) => (
@@ -27,7 +35,9 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-          <ThemeToggle />
+          <div className={styles.abLogoContainer}>
+            <img src="/AB-logo.PNG" alt="AB Logo" className={styles.abLogo} />
+          </div>
         </nav>
       </div>
     </header>

@@ -32,7 +32,17 @@ export function Footer() {
           </Link>
         </div>
         <p className={styles.copyright}>
-          © {new Date().getFullYear()} {siteConfig.name}
+          © {new Date().getFullYear()}{' '}
+          {siteConfig.name.includes('(aka Busy Metal)') ? (
+            <>
+              {siteConfig.name.replace('(aka Busy Metal)', '').trim()}{' '}
+              <span style={{ fontWeight: 400, color: 'var(--color-muted)' }}>
+                (aka Busy Metal)
+              </span>
+            </>
+          ) : (
+            siteConfig.name
+          )}
         </p>
       </div>
     </footer>

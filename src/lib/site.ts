@@ -1,14 +1,14 @@
 export const siteConfig = {
-  name: 'Your Name',
-  title: 'Your Name — Writing & Notes',
+  name: '☆mir Busy (aka Busy Metal)',
+  title: '☆mir Busy (aka Busy Metal) — Writing & Notes',
+  realname: 'Amir Bizimana',
   description: 'Essays on technology, design, and building things.',
   url: 'https://yourdomain.com',
   repo: 'https://github.com/Iambizi/BLOG',
   socials: {
-    github: 'https://github.com/Iambizi',
-    threads: 'https://threads.net/@yourusername',
-    twitter: 'https://x.com/yourusername',
-    linkedin: 'https://linkedin.com/in/yourusername',
+    github: 'https://github.com/Iambizi/',
+    threads: 'https://www.threads.com/@amirbusy_',
+    linkedin: 'https://www.linkedin.com/in/abzmn/',
   },
   nav: [
     { label: 'Writing', href: '/writing' },
