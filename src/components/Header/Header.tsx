@@ -12,16 +12,7 @@ export function Header() {
     <header className={styles.header}>
       <div className={styles.inner}>
         <Link href="/" className={styles.logo}>
-          {siteConfig.name.includes('(aka Busy Metal)') ? (
-            <>
-              {siteConfig.name.replace('(aka Busy Metal)', '').trim()}{' '}
-              <span style={{ fontWeight: 400, color: 'var(--color-muted)', fontSize: '13px' }}>
-                (aka Busy Metal)
-              </span>
-            </>
-          ) : (
-            siteConfig.name
-          )}
+          {siteConfig.name}
         </Link>
         <nav className={styles.nav}>
           {siteConfig.nav.map((link) => (
