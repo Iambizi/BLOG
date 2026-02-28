@@ -1,0 +1,46 @@
+---
+title: "Delegation UI"
+date: "2026-02-28"
+description: "Why the navigation-first UI is dying and the emergence of Delegation UI, a new paradigm where interfaces are cockpits you monitor rather than vehicles you drive."
+tags: ["ui", "agents","agentic experience"]
+draft: false
+featured: false
+---
+
+"Frontend/UI is dead" is a sentiment that's been steadily growing with each new AI coding tool that ships. For sure, for a certain kind of frontend work, the writing is on the wall — think translating Figma files into code.
+
+I think that framing misses what's actually happening and needs to be properly articulated.
+
+What's actually dying is navigation-first UI; the assumption that an interface exists to help a user drive software manually. That assumption held for thirty years but it no longer holds with Agents.
+
+Looking back, there have been two dominant UI paradigms that have defined how humans interact with software. We're now watching a third one emerge in real time:
+
+**Command line UI:** You told the machine exactly what to do, step by step. The interface was literally just a prompt.
+
+**Navigation UI:** You drove software through menus, flows, and screens. The interface was a vehicle. This is the paradigm that held for thirty years and the one that's actually dying.
+
+**Delegation UI:** You describe an outcome and an agent pursues it. The interface is no longer a vehicle you drive; it's a cockpit you monitor. Clicking through steps is going away — instead you're setting intent, reviewing decisions, and maintaining oversight.
+
+Unlike the previous two, nobody has thirty years of established patterns to borrow from. We know how to build navigation UI in our sleep. You know what a button does, you know where the menu lives, you know what a footer is for.
+
+Every component library on earth was built for this world. Delegation UI has none of that. The vocabulary doesn't exist yet.
+
+Delegation UI asks completely different questions:
+
+How do you tell an agent what you want without writing a paragraph of instructions every time? How do you know when to trust it and when to double-check? How do you stay in control of something that moves faster than you can follow?
+
+The interface layer is becoming the place where humans and agents negotiate, and nobody has built the design language for that yet.
+
+This is the problem I've been building toward with [depute](https://iambizi.github.io/depute/): an open source React component library for the delegation UI.
+
+The component list is shaped by how much autonomy an agent has at any given moment: the more autonomous, the more the interface needs to compensate with visibility and control.
+
+Primitives like: 
+- [ApprovalGate](https://iambizi.github.io/depute/?path=/story/ax-components-approvalgate--default)
+- [PlanCard](https://iambizi.github.io/depute/?path=/story/ax-components-plancard--default)
+- [RunControls](https://iambizi.github.io/depute/?path=/story/ax-components-runcontrols--default)
+- [ToolTrace](https://iambizi.github.io/depute/?path=/story/ax-components-tooltrace--default)
+
+aren't new UI patterns for novelty's sake, but more so minimum viable components for interfaces where the user supervises instead of operates.
+
+The field is early and the components don't exist yet. So I started building them.

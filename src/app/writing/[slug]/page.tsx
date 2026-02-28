@@ -120,16 +120,7 @@ export default async function PostPage({ params }: PostPageProps) {
             />
           </div>
 
-          {/* Edit on GitHub */}
-          <div className={styles.editLink}>
-            <a
-              href={`${siteConfig.repo}/edit/main/content/writing/${slug}.mdx`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Edit this page on GitHub →
-            </a>
-          </div>
+
 
           {/* Previous / Next */}
           <nav className={styles.adjacentNav}>
